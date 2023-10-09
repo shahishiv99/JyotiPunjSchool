@@ -1,0 +1,229 @@
+body {
+  margin: auto;
+  box-sizing: border-box;
+}
+
+.background {
+  background-image: url(./images/Mono.jpg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  opacity: 0.7;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: -1;
+}
+
+.signIn {
+  width: 400px;
+  height: 430px;
+  border-radius: 15px;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.userId,
+.pass {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 60px 25px;
+}
+
+.input {
+  width: 350px;
+  height: 67px;
+  border-radius: 10px;
+  padding-left: 20px;
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.login {
+  border-radius: 30px;
+  background-color: rgba(247, 5, 5, 8);
+  border: 1px rgba(247, 5, 5, 1) solid;
+  color: whitesmoke;
+}
+
+.login:hover {
+  background-color: rgba(8, 24, 255, 8);
+  border: 1px rgba(49, 5, 247, 1) solid;
+}
+.heading {
+  text-align: center;
+  color: rgb(28, 4, 247);
+  margin-top: 10px;
+}
+
+.add {
+  color: rgb(20, 25, 100);
+  text-align: center;
+  margin-top: -8px;
+}
+
+.form {
+  border: 2px solid black;
+  padding: 10px;
+  margin: auto;
+  width: 75%;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 8px;
+}
+
+tbody,
+td,
+tfoot,
+th,
+thead,
+tr {
+  border-color: black;
+  border-style: solid;
+  border-width: 1px;
+}
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+.table-content {
+  margin-top: 30px;
+}
+.display {
+  display: none;
+}
+
+.back {
+  margin-top: 25px;
+  margin-left: 80px;
+  border-radius: 5px;
+  background-color: beige;
+  color: black;
+  font-weight: bold;
+  width: 130px;
+}
+
+.fa {
+  position: relative;
+  display: table-cell;
+  width: 60px;
+  height: 36px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 20px;
+}
+
+.main-menu:hover,
+nav.main-menu.expanded {
+  width: 250px;
+  overflow: visible;
+}
+
+.main-menu {
+  background: #212121;
+  border-right: 1px solid #e5e5e5;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  width: 60px;
+  overflow: hidden;
+  -webkit-transition: width 0.05s linear;
+  transition: width 0.05s linear;
+  -webkit-transform: translateZ(0) scale(1, 1);
+  z-index: 1000;
+}
+
+.main-menu > ul {
+  margin: 7px 0;
+}
+
+.main-menu li {
+  position: relative;
+  display: block;
+  width: 250px;
+}
+
+.main-menu li > a {
+  position: relative;
+  display: table;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: #999;
+  font-family: arial;
+  font-size: 14px;
+  text-decoration: none;
+  -webkit-transform: translateZ(0) scale(1, 1);
+  -webkit-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+}
+
+.main-menu .nav-text {
+  position: relative;
+  display: table-cell;
+  vertical-align: middle;
+  width: 190px;
+  font-family: "Titillium Web", sans-serif;
+}
+
+.main-menu > ul.logout {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+.no-touch .scrollable.hover {
+  overflow-y: hidden;
+}
+
+.no-touch .scrollable.hover:hover {
+  overflow-y: auto;
+  overflow: visible;
+}
+
+a:hover,
+a:focus {
+  text-decoration: none;
+}
+
+nav {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+nav ul,
+nav li {
+  outline: 0;
+  margin: 0;
+  padding: 0;
+}
+.main-menu li:hover > a,
+nav.main-menu li.active > a,
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus,
+.dropdown-menu > .active > a,
+.dropdown-menu > .active > a:hover,
+.dropdown-menu > .active > a:focus,
+.no-touch .dashboard-page nav.dashboard-menu ul li:hover a,
+.dashboard-page nav.dashboard-menu ul li.active a {
+  color: #fff;
+  background-color: #000000;
+}
+.area {
+  float: left;
+  width: 100%;
+  height: 100%;
+}
