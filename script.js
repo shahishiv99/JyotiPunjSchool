@@ -57,7 +57,7 @@ const LogOutBtn = document.getElementById("logOut");
 const url = "http://43.204.145.206:5000/";
 const postUrl = "http://43.204.145.206:5000/post";
 const putUrl = "http://43.204.145.206:5000/put";
-const loginUrl = "https://43.204.145.206:5000/login";
+const loginUrl = "http://43.204.145.206:5000/login";
 
 async function logIn() {
   let userId = document.getElementById("userId").value;
