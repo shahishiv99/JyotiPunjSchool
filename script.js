@@ -70,14 +70,16 @@ async function logIn() {
     },
   });
   const result = await loginResult.json();
-
   const user = result.userId;
   if (user) {
+    console.log("true");
+    console.log(user);
     localStorage.setItem("user", JSON.stringify(result));
     alert("WELCOME TO THE BBPS SHIKOHABAD");
     home();
   } else {
     alert("Please Check UserId and Password");
+    console.log("false");
   }
 }
 
