@@ -53,6 +53,10 @@ const LogInBtn = document.getElementById("logInBtn");
 const SignIn = document.getElementById("signIn");
 const Content = document.getElementById("content");
 const LogOutBtn = document.getElementById("logOut");
+const Menubar = document.getElementById("menubar");
+const MainMenu = document.getElementById("main-menu");
+
+let toggle = true;
 
 const url = "http://43.204.145.206:5000/";
 const postUrl = "http://43.204.145.206:5000/post";
@@ -132,6 +136,18 @@ function displayFeeData() {
   SignIn.classList.add("display");
   AdmissionForm.classList.add("display");
   SchoolFee.classList.add("display");
+}
+
+function menuBar() {
+  if (toggle === true) {
+    MainMenu.classList.add("expandedMenu");
+    MainMenu.classList.add("change");
+    toggle = false;
+  } else {
+    MainMenu.classList.remove("expandedMenu");
+    MainMenu.classList.remove("change");
+    toggle = true;
+  }
 }
 
 function logOut() {
@@ -305,3 +321,4 @@ FeeData.addEventListener("click", displayFeeData);
 Back.addEventListener("click", backTo);
 LogInBtn.addEventListener("click", logIn);
 LogOutBtn.addEventListener("click", logOut);
+Menubar.addEventListener("click", menuBar);

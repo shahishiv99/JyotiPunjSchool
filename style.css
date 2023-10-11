@@ -122,11 +122,11 @@ tr:nth-child(even) {
   font-size: 20px;
 }
 
-.main-menu:hover,
+/* .main-menu:hover,
 nav.main-menu.expanded {
   width: 250px;
   overflow: visible;
-}
+} */
 
 .main-menu {
   background: #212121;
@@ -142,6 +142,11 @@ nav.main-menu.expanded {
   transition: width 0.05s linear;
   -webkit-transform: translateZ(0) scale(1, 1);
   z-index: 1000;
+}
+
+.expandedMenu {
+  width: 250px;
+  overflow: visible;
 }
 
 .main-menu > ul {
@@ -180,6 +185,36 @@ nav.main-menu.expanded {
   position: absolute;
   left: 0;
   bottom: 0;
+}
+
+.menulist {
+  margin-top: 15px;
+}
+
+.bar1,
+.bar2,
+.bar3 {
+  width: 35px;
+  height: 2px;
+  background-color: white;
+  margin: 8px;
+  transition: 0.4s;
+}
+
+.change .bar1 {
+  transform: rotate(-45deg) translate(-7px, 8px);
+}
+
+.change .bar2 {
+  opacity: 0;
+}
+
+.change .bar3 {
+  transform: rotate(45deg) translate(-7px, -7px);
+}
+
+.menubar {
+  padding-top: 10px;
 }
 
 .no-touch .scrollable.hover {
