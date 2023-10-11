@@ -39,7 +39,7 @@ const Admission_Fee = document.getElementById("admissionFee");
 const School_Fees = document.getElementById("schoolFees");
 const Total_Fee = document.getElementById("totalAmount");
 const Discount_Fee = document.getElementById("discount");
-const Balance_Fee = document.getElementById("balanceAmount");
+const Balance_Fee = document.getElementById("balanceAmountnu");
 const GetData = document.getElementById("getData");
 const Update = document.getElementById("update");
 const Registration = document.getElementById("registration");
@@ -55,6 +55,7 @@ const Content = document.getElementById("content");
 const LogOutBtn = document.getElementById("logOut");
 const Menubar = document.getElementById("menubar");
 const MainMenu = document.getElementById("main-menu");
+const Body = document.getElementById("body");
 
 let toggle = true;
 
@@ -142,10 +143,13 @@ function menuBar() {
   if (toggle === true) {
     MainMenu.classList.add("expandedMenu");
     MainMenu.classList.add("change");
+    Body.classList.add("expandSidebar");
+
     toggle = false;
   } else {
     MainMenu.classList.remove("expandedMenu");
     MainMenu.classList.remove("change");
+    Body.classList.remove("expandSidebar");
     toggle = true;
   }
 }

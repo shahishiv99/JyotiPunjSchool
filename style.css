@@ -122,12 +122,6 @@ tr:nth-child(even) {
   font-size: 20px;
 }
 
-/* .main-menu:hover,
-nav.main-menu.expanded {
-  width: 250px;
-  overflow: visible;
-} */
-
 .main-menu {
   background: #212121;
   border-right: 1px solid #e5e5e5;
@@ -141,7 +135,6 @@ nav.main-menu.expanded {
   -webkit-transition: width 0.05s linear;
   transition: width 0.05s linear;
   -webkit-transform: translateZ(0) scale(1, 1);
-  z-index: 1000;
 }
 
 .expandedMenu {
@@ -257,8 +250,16 @@ nav.main-menu li.active > a,
   color: #fff;
   background-color: #000000;
 }
-.area {
+
+.body {
   float: left;
   width: 100%;
   height: 100%;
+  display: grid;
+  grid-template-columns: 4.5% auto;
+}
+
+.expandSidebar {
+  display: grid;
+  grid-template-columns: 18.5% auto;
 }
