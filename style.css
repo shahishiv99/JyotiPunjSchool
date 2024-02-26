@@ -4,7 +4,7 @@ body {
 }
 
 .background {
-  background-image: url(./images/Mono.jpg);
+  background-image: url(./images/Mono.jpeg);
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -105,6 +105,7 @@ tr:nth-child(even) {
 .back {
   margin-top: 25px;
   margin-left: 80px;
+  margin-bottom: 15px;
   border-radius: 5px;
   background-color: beige;
   color: black;
@@ -134,7 +135,7 @@ tr:nth-child(even) {
   overflow: hidden;
   -webkit-transition: width 0.05s linear;
   transition: width 0.05s linear;
-  -webkit-transform: translateZ(0) scale(1, 1);
+  /* -webkit-transform: translateZ(0) scale(1, 1); */
 }
 
 .expandedMenu {
@@ -161,7 +162,7 @@ tr:nth-child(even) {
   font-family: arial;
   font-size: 14px;
   text-decoration: none;
-  -webkit-transform: translateZ(0) scale(1, 1);
+  /* -webkit-transform: translateZ(0) scale(1, 1); */
   -webkit-transition: all 0.1s linear;
   transition: all 0.1s linear;
 }
@@ -172,6 +173,43 @@ tr:nth-child(even) {
   vertical-align: middle;
   width: 190px;
   font-family: "Titillium Web", sans-serif;
+}
+
+.alignment {
+  margin-top: -7px;
+}
+.mono {
+  width: 95%;
+  height: 90%;
+}
+.height {
+  height: 120px;
+}
+.feesReceiptInput {
+  border: none;
+}
+
+.background_mono {
+  background-image: url("/images/Mono.jpeg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  opacity: 0.7;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: -1;
+}
+.feesReceiptScale {
+  scale: 83%;
+  margin-top: -40px;
+}
+.title {
+  padding: 10px 8px;
+  border: 2px solid black;
+  border-radius: 10px;
 }
 
 .main-menu > ul.logout {
@@ -208,6 +246,7 @@ tr:nth-child(even) {
 
 .menubar {
   padding-top: 10px;
+  padding-left: 6px;
 }
 
 .no-touch .scrollable.hover {
@@ -262,4 +301,208 @@ nav.main-menu li.active > a,
 .expandSidebar {
   display: grid;
   grid-template-columns: 18.5% auto;
+}
+
+.Principal-Stamp {
+  text-align: center;
+}
+.note {
+  text-align: end;
+}
+
+.tcPrint {
+  margin-top: 120px;
+  margin-left: -120px;
+}
+
+.tcShow {
+  margin-top: 10px;
+}
+
+.center {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.td-text {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.btnResult {
+  border: 1px solid #212121;
+}
+
+.student_Profile > table > thead > tr > th,
+.student_Profile > table > tbody > tr > th,
+.student_Profile > table > tbody > tr > td {
+  border-color: white;
+}
+
+.card {
+  width: 190px;
+  height: 310px;
+  background: url(./images/Card.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+  padding: 7px;
+  /* margin-top: -3px; */
+  border-radius: 40% 40% 20% 20%;
+  /* width: 100%;
+  height: 90%;
+  padding: 6px;
+  margin-top: -3px;
+  border-radius: 40% 40% 20% 20%; */
+}
+
+.img-outer {
+  width: 55px;
+  height: 55px;
+  margin: 5px 0px 0px -86px;
+  border-radius: 50%;
+  border: 1px solid gray;
+  background-color: white;
+  position: absolute;
+}
+
+.img-outer > span {
+  margin: -40px;
+  position: absolute;
+  margin-top: 38px;
+  font-size: 9px;
+  color: blue;
+}
+
+.school_name {
+  width: 130px;
+  text-align: center;
+  margin-left: -32px;
+  margin-top: 12px;
+  color: mediumblue;
+  text-shadow: 1px 0.7px darkturquoise;
+  position: absolute;
+  word-spacing: -1px;
+}
+
+.photo-outer {
+  width: 70px;
+  height: 85px;
+  margin: 60px 0px 0px -25px;
+  border-radius: 30% 0% 30% 0%;
+  border: 3px solid darkorange;
+  background-color: white;
+  position: absolute;
+}
+
+.name_ID {
+  margin-top: 147px;
+  text-align: center;
+  margin-left: -86.5px;
+}
+.mobile_ID {
+  text-align: center;
+  width: 110px;
+  margin-left: -55px;
+  margin-bottom: -15px;
+  margin-top: 15px;
+}
+
+.details_ID {
+  margin: 0px 0px 0px -95px;
+  font-size: 10.8px;
+  width: 90px;
+}
+
+.details_ID > p {
+  margin: 0px 0px 0px 10px;
+  height: 10px;
+}
+
+.line_ID {
+  color: crimson;
+  width: 130px;
+  border-top: 4px solid;
+  opacity: 1;
+  margin-left: -65px;
+  margin-top: -1px;
+}
+
+.input_ID {
+  margin-left: 90px;
+  margin-top: -10px;
+  height: 16px;
+  width: 110px;
+}
+
+.input_visible {
+  border: none;
+  background: transparent;
+  width: 102px;
+}
+
+.printResult {
+  margin: 5px;
+  margin-top: 120px;
+  font-size: 12px;
+}
+
+.box {
+  margin-left: 20px;
+}
+
+.address_card {
+  text-align: center;
+  margin-top: -15px;
+  color: black;
+  line-height: 12px;
+  text-shadow: 1px 1px sandybrown;
+  width: 200px;
+  margin-left: -95px;
+  font-size: 10px;
+}
+.photo > img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.photo {
+  width: 120px;
+  height: 120px;
+  margin: 1% 70% 0% 10%;
+}
+
+.upload-btn {
+  margin: -5px 0px 0px 75px;
+}
+
+.photo-btn {
+  margin-top: 50px;
+  margin-left: -180px;
+}
+
+.sr-btn {
+  margin-top: -10px;
+}
+
+.search-head {
+  border: 2px solid green;
+  padding: 8px;
+  box-shadow: 0px 0px 20px lightgreen;
+}
+
+.inputTc {
+  border: none;
+  font-weight: 600;
+  width: 150px;
+}
+
+.containerTc {
+  min-width: 120%;
+  margin-left: -90px;
 }
