@@ -149,6 +149,7 @@ const PrintFeeBtn = document.getElementById("printFeeBtn");
 const Village = document.getElementById("village");
 const PenNumber = document.getElementById("penNumber");
 const searchDate = document.getElementById("getDataByData");
+let table = document.getElementById("myTable");
 
 // API KEYS
 const url = "http://43.204.114.57:5000/data";
@@ -1660,6 +1661,108 @@ function dateRangeArray(start_date, end_date) {
   return date_Array;
 }
 
+// Show Pagination
+
+function Pagination(a) {
+  const total_records_tr = a;
+  const record_per_page = 5;
+  var page_number = 1;
+  const total_records = total_records_tr.length;
+  const total_page = Math.ceil(total_records / record_per_page);
+  function DisplayRecords() {
+    let start_index = (page_number - 1) * record_per_page;
+    let end_index = start_index + (record_per_page - 1);
+    if (end_index >= total_records) {
+      end_index = total_records - 1;
+    }
+    table.innerHTML = "";
+    for (let i = start_index; i <= end_index; i++) {
+      // console.log(total_records_tr[i]);
+      let row = `<tr>
+          <td style="text-align: center;">${total_records_tr[i].SR}</td>
+          <td style="text-align: center;">${total_records_tr[i].Name}</td>
+          <td style="text-align: center;">${total_records_tr[i].FName}</td>
+          <td style="text-align: center;">${total_records_tr[i].MName}</td>
+          <td style="text-align: center;">${total_records_tr[i].Class}</td>
+          <td style="text-align: center;">${total_records_tr[i].Section}</td>
+          <td style="text-align: center;">${total_records_tr[i].Mobile1}</td>
+          <td style="text-align: center;">${total_records_tr[i].Mobile2}</td>
+          <td style="text-align: center;">${total_records_tr[i].PenNumber}</td>
+          <td style="text-align: center;">${total_records_tr[i].TotalFee}</td>
+          <td style="text-align: center;">${total_records_tr[i].BalanceFee}</td>
+          <td style="text-align: center;">${total_records_tr[i].Discount}</td>
+          <td style="text-align: center;">${total_records_tr[i].PaidAmount}</td>
+          <td style="text-align: center;"><button onclick="myStudentData(${total_records_tr[i].SR})">PROFILE</button></td>
+          <td style="text-align: center;"><button onclick="myStudentFees(${total_records_tr[i].SR})">FEES</button></td>
+          <td style="text-align: center;"><button onclick="myStudentResult(${total_records_tr[i].SR})">Result</button></td>
+        </tr>`;
+      table.innerHTML += row;
+      document.querySelectorAll(".dynamic-item").forEach((item) => {
+        item.classList.remove("active");
+      });
+      document.getElementById(`page${page_number}`).classList.add("active");
+      if (page_number == 1) {
+        document
+          .getElementById("prevBTN")
+          .parentElement.classList.add("disabled");
+      } else {
+        document
+          .getElementById("prevBTN")
+          .parentElement.classList.remove("disabled");
+      }
+      if (page_number == total_page) {
+        document
+          .getElementById("nextBTN")
+          .parentElement.classList.add("disabled");
+      } else {
+        document
+          .getElementById("nextBTN")
+          .parentElement.classList.remove("disabled");
+      }
+    }
+  }
+  function prevBtn() {
+    page_number--;
+    DisplayRecords();
+  }
+  function nextBtn() {
+    page_number++;
+    DisplayRecords();
+  }
+  function GoToPage() {
+    page_number = document.getElementById("pageGo").value;
+
+    console.log("Hello");
+    DisplayRecords();
+  }
+
+  createPageNumber();
+  DisplayRecords();
+
+  function createPageNumber() {
+    let prevBtn = `<li class="page-item">
+    <a class="page-link" href="javascript:void(0)" id="prevBTN">Previous</a></li>`;
+    let nextBtn = `<li class="page-item">
+    <a class="page-link" href="javascript:void(0)" id="nextBTN">Next</a></li>`;
+    let buttons = "";
+    let activeClass = "";
+    for (let i = 1; i <= total_page; i++) {
+      if (i == 1) {
+        activeClass = "active";
+      } else {
+        activeClass = "";
+      }
+      buttons += `<li class="page-item dynamic-item ${activeClass}" id="page${i}"><a class="page-link" value="${i}" id="pageGo" href="javascript:void(0)">${i}</a></li>`;
+    }
+    document.getElementById(
+      "pagination"
+    ).innerHTML = ` ${prevBtn} ${buttons} ${nextBtn}`;
+    document.getElementById("pageGo").addEventListener("click", GoToPage);
+  }
+
+  document.getElementById("prevBTN").addEventListener("click", prevBtn);
+  document.getElementById("nextBTN").addEventListener("click", nextBtn);
+}
 async function totalCollection() {
   let filterDates = "";
   if (searchDate.value.length > 0) {
@@ -1896,7 +1999,7 @@ async function totalCollection() {
 }
 
 function tableGet(getStudentData) {
-  let table = document.getElementById("myTable");
+  // let table = document.getElementById("myTable");
   table.innerHTML = "";
   // for (let i = 0; i < getStudentData.length; i++) {
   let row = `<tr>
@@ -1943,7 +2046,7 @@ async function studentFeeList() {
   const getResponse = await fetch(url);
   const getResult = await getResponse.json();
   // console.log(getResult);
-  let table = document.getElementById("myTable");
+  // let table = document.getElementById("myTable");
   table.innerHTML = "";
   const studentDataName = getStudentNameEl.value;
   const studentDataClass = getClassEl.value;
@@ -2043,27 +2146,28 @@ async function studentFeeList() {
       }
     });
     console.log(data_filter);
-    for (let i = 0; i < data_filter.length; i++) {
-      let row = `<tr>
-        <td style="text-align: center;">${data_filter[i].SR}</td>
-        <td style="text-align: center;">${data_filter[i].Name}</td>
-        <td style="text-align: center;">${data_filter[i].FName}</td>
-        <td style="text-align: center;">${data_filter[i].MName}</td>
-        <td style="text-align: center;">${data_filter[i].Class}</td>
-        <td style="text-align: center;">${data_filter[i].Section}</td>
-        <td style="text-align: center;">${data_filter[i].Mobile1}</td>
-        <td style="text-align: center;">${data_filter[i].Mobile2}</td>
-        <td style="text-align: center;">${data_filter[i].PenNumber}</td>
-        <td style="text-align: center;">${data_filter[i].TotalFee}</td>
-        <td style="text-align: center;">${data_filter[i].BalanceFee}</td>
-        <td style="text-align: center;">${data_filter[i].Discount}</td>
-        <td style="text-align: center;">${data_filter[i].PaidAmount}</td>
-        <td style="text-align: center;"><button onclick="myStudentData(${data_filter[i].SR})">PROFILE</button></td>
-        <td style="text-align: center;"><button onclick="myStudentFees(${data_filter[i].SR})">FEES</button></td>
-        <td style="text-align: center;"><button onclick="myStudentResult(${data_filter[i].SR})">Result</button></td>
-      </tr>`;
-      table.innerHTML += row;
-    }
+    Pagination(data_filter);
+    // for (let i = 0; i < data_filter.length; i++) {
+    //   let row = `<tr>
+    //     <td style="text-align: center;">${data_filter[i].SR}</td>
+    //     <td style="text-align: center;">${data_filter[i].Name}</td>
+    //     <td style="text-align: center;">${data_filter[i].FName}</td>
+    //     <td style="text-align: center;">${data_filter[i].MName}</td>
+    //     <td style="text-align: center;">${data_filter[i].Class}</td>
+    //     <td style="text-align: center;">${data_filter[i].Section}</td>
+    //     <td style="text-align: center;">${data_filter[i].Mobile1}</td>
+    //     <td style="text-align: center;">${data_filter[i].Mobile2}</td>
+    //     <td style="text-align: center;">${data_filter[i].PenNumber}</td>
+    //     <td style="text-align: center;">${data_filter[i].TotalFee}</td>
+    //     <td style="text-align: center;">${data_filter[i].BalanceFee}</td>
+    //     <td style="text-align: center;">${data_filter[i].Discount}</td>
+    //     <td style="text-align: center;">${data_filter[i].PaidAmount}</td>
+    //     <td style="text-align: center;"><button onclick="myStudentData(${data_filter[i].SR})">PROFILE</button></td>
+    //     <td style="text-align: center;"><button onclick="myStudentFees(${data_filter[i].SR})">FEES</button></td>
+    //     <td style="text-align: center;"><button onclick="myStudentResult(${data_filter[i].SR})">Result</button></td>
+    //   </tr>`;
+    //   table.innerHTML += row;
+    // }
   };
   if (
     studentDataName.length > 0 ||
@@ -2078,27 +2182,28 @@ async function studentFeeList() {
       studentDataPenNumber
     );
   } else {
-    for (let i = 0; i < getResult.length; i++) {
-      let row = `<tr>
-        <td style="text-align: center;">${getResult[i].SR}</td>
-        <td style="text-align: center;">${getResult[i].Name}</td>
-        <td style="text-align: center;">${getResult[i].FName}</td>
-        <td style="text-align: center;">${getResult[i].MName}</td>
-        <td style="text-align: center;">${getResult[i].Class}</td>
-        <td style="text-align: center;">${getResult[i].Section}</td>
-        <td style="text-align: center;">${getResult[i].Mobile1}</td>
-        <td style="text-align: center;">${getResult[i].Mobile2}</td>
-        <td style="text-align: center;">${getResult[i].PenNumber}</td>
-        <td style="text-align: center;">${getResult[i].TotalFee}</td>
-        <td style="text-align: center;">${getResult[i].BalanceFee}</td>
-        <td style="text-align: center;">${getResult[i].Discount}</td>
-        <td style="text-align: center;">${getResult[i].PaidAmount}</td>
-        <td style="text-align: center;"><button onclick="myStudentData(${getResult[i].SR})">PROFILE</button></td>
-        <td style="text-align: center;"><button onclick="myStudentFees(${getResult[i].SR})">FEES</button></td>
-        <td style="text-align: center;"><button onclick="myStudentResult(${getResult[i].SR})">Result</button></td>
-      </tr>`;
-      table.innerHTML += row;
-    }
+    Pagination(getResult);
+    // for (let i = 0; i < getResult.length; i++) {
+    //   let row = `<tr>
+    //     <td style="text-align: center;">${getResult[i].SR}</td>
+    //     <td style="text-align: center;">${getResult[i].Name}</td>
+    //     <td style="text-align: center;">${getResult[i].FName}</td>
+    //     <td style="text-align: center;">${getResult[i].MName}</td>
+    //     <td style="text-align: center;">${getResult[i].Class}</td>
+    //     <td style="text-align: center;">${getResult[i].Section}</td>
+    //     <td style="text-align: center;">${getResult[i].Mobile1}</td>
+    //     <td style="text-align: center;">${getResult[i].Mobile2}</td>
+    //     <td style="text-align: center;">${getResult[i].PenNumber}</td>
+    //     <td style="text-align: center;">${getResult[i].TotalFee}</td>
+    //     <td style="text-align: center;">${getResult[i].BalanceFee}</td>
+    //     <td style="text-align: center;">${getResult[i].Discount}</td>
+    //     <td style="text-align: center;">${getResult[i].PaidAmount}</td>
+    //     <td style="text-align: center;"><button onclick="myStudentData(${getResult[i].SR})">PROFILE</button></td>
+    //     <td style="text-align: center;"><button onclick="myStudentFees(${getResult[i].SR})">FEES</button></td>
+    //     <td style="text-align: center;"><button onclick="myStudentResult(${getResult[i].SR})">Result</button></td>
+    //   </tr>`;
+    //   table.innerHTML += row;
+    // }
   }
 }
 
