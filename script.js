@@ -1665,7 +1665,7 @@ function dateRangeArray(start_date, end_date) {
 
 function Pagination(a) {
   const total_records_tr = a;
-  const record_per_page = 5;
+  const record_per_page = 50;
   var page_number = 1;
   const total_records = total_records_tr.length;
   const total_page = Math.ceil(total_records / record_per_page);
@@ -1763,6 +1763,7 @@ function Pagination(a) {
   document.getElementById("prevBTN").addEventListener("click", prevBtn);
   document.getElementById("nextBTN").addEventListener("click", nextBtn);
 }
+
 async function totalCollection() {
   let filterDates = "";
   if (searchDate.value.length > 0) {
@@ -2034,6 +2035,7 @@ async function studentSearchBySrGet() {
       if (filterSRValue === true) {
         console.log(getResult);
         tableGet(getResult);
+        Pagination(getResult);
       }
       filterSRValue = false;
     }
