@@ -152,18 +152,18 @@ const searchDate = document.getElementById("getDataByData");
 let table = document.getElementById("myTable");
 
 // API KEYS
-const url = "http://3.110.177.153:5000/data";
-const oneData = "http://3.110.177.153:5000/data/:_id";
-const postUrl = "http://3.110.177.153:5000/data/post";
-// const postPhotoUploadUrl = "http://127.0.0.1:5000/photo";
+const url = "https://3.110.177.153:5000/data";
+const oneData = "https://3.110.177.153:5000/data/:_id";
+const postUrl = "https://3.110.177.153:5000/data/post";
+// const postPhotoUploadUrl = "https://127.0.0.1:5000/photo";
 // Image
-const PostDocument = "http://3.110.177.153:5000/Documents";
+const PostDocument = "https://3.110.177.153:5000/Documents";
 // Document
-const postPhoto = "http://3.110.177.153:5000/photo";
-const putUrl = "http://3.110.177.153:5000/data/put/:_id";
-const patchUrl = "http://3.110.177.153:5000/data/patch/:_id";
-const deleteUrl = "http://3.110.177.153:5000/data/delete/:_id";
-const loginUrl = "http://3.110.177.153:5000/login";
+const postPhoto = "https://3.110.177.153:5000/photo";
+const putUrl = "https://3.110.177.153:5000/data/put/:_id";
+const patchUrl = "https://3.110.177.153:5000/data/patch/:_id";
+const deleteUrl = "https://3.110.177.153:5000/data/delete/:_id";
+const loginUrl = "https://3.110.177.153:5000/login";
 
 let toggle = true;
 let filterSR;
